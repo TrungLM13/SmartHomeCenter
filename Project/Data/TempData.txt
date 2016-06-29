@@ -1,0 +1,20 @@
+001, light, kitchen room, 1
+002, light, kitchen room, 1
+003, air conditional, bathroom, 1
+004, cook, kitchen room, 1
+005, light, canteen, 1
+006, cook, livingroom, 1
+007, fan, kitchen room, 1
+008, light, kitchen room, 1
+009, light, bathroom, 1
+010, fan, bathroom, 1
+011, light, kitchen room, 1
+012, TV, kitchen room, 0
+013, light, kitchen room, 1
+014, light, kitchen room, 1
+015, fan, kitchen room, 0
+016, cook, kitchen room, 1
+017, light, kitchen room, 0
+018, TV, kitchen room, 1
+019, light, kitchen room, 1
+020, light, kitchen room, 1
