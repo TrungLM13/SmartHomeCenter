@@ -5,16 +5,16 @@ public class IDevice {
 	private	String	m_DeviceID;
 	private	String	m_DeviceName;
 	private	String	m_Location;
-	private int		m_Status;
+	private String		m_Status;
 	
 	public IDevice(){
 		m_DeviceID		= "";
 		m_DeviceName	= "";
 		m_Location		= "";
-		m_Status		= IStatus.OK;
+		m_Status		= "";
 	}
 	
-	public IDevice(String id, String name, String location, int status){
+	public IDevice(String id, String name, String location, String status){
 		m_DeviceID		=	id;
 		m_DeviceName	=	name;
 		m_Location		=	location;
@@ -45,11 +45,11 @@ public class IDevice {
 		this.m_Location = m_Location;
 	}
 
-	public int getM_Status() {
+	public String getM_Status() {
 		return m_Status;
 	}
 
-	public void setM_Status(int m_Status) {
+	public void setM_Status(String m_Status) {
 		this.m_Status = m_Status;
 	}
 

@@ -23,7 +23,7 @@ public class HiveProcedure {
 					log.setM_DeviceID(m_ResultSet.getString(1));
 					log.setM_DeviceName(m_ResultSet.getString(2));
 					log.setM_Location(m_ResultSet.getString(3));
-					log.setM_Status(m_ResultSet.getInt(4));
+					log.setM_Status(m_ResultSet.getString(4));
 					
 					sensor_logs.add(log);
 
@@ -121,6 +121,20 @@ public class HiveProcedure {
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Can not load data to table: " + ITableName.s_Power);
+			e.printStackTrace();
+		}
+	}
+	
+	public void sp_DropALL(ConnectionHive conn){
+		try {
+			conn.getM_Statement().execute(HiveAPI.s_DropLogTable);
+			conn.getM_Statement().execute(HiveAPI.s_DropDeviceTable);
+			conn.getM_Statement().execute(HiveAPI.s_DropPowerTable);
+			conn.getM_Statement().execute(HiveAPI.s_DropDataBase);
+			System.out.println("Drop done");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Can not drop table or database");
 			e.printStackTrace();
 		}
 	}

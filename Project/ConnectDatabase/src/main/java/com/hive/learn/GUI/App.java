@@ -28,6 +28,7 @@ public class App {
 		System.out.println("3 - Show device detail");
 		System.out.println("4 - Show power consumption");
 		System.out.println("5 - Running load data sensor process");
+		System.out.println("8 - Drop System for Restart");
 		System.out.println("9 - Show Menu");
 		System.out.println("------------------------------------------------------");
 		System.out.println("0 - Quit");
@@ -35,9 +36,9 @@ public class App {
 	}
 	
 	public void StartServer(){
-		System.out.println("Start Service ....");
+		System.out.println("Start Service ....  \n");
 		this.hiveConnection.CreateConnection();
-        System.out.println("Establish Connection");
+        System.out.println("Establish Connection \n");
         this.hiveProcedure.sp_CreateDataBase(this.hiveConnection);
         System.out.println("Sucsess create Database " +  ITableName.s_DataBaseName + "\n");
         this.hiveProcedure.sp_UseDataBase(this.hiveConnection);
@@ -85,6 +86,9 @@ public class App {
 			case 5:
 				center.hiveProcedure.sp_LoadDataSensorLog(center.hiveConnection);
 				System.out.println("Load data success");
+				break;
+			case 8:
+				center.hiveProcedure.sp_DropALL(center.hiveConnection);
 				break;
 			case 9:
 				center.Menu();

@@ -6,7 +6,6 @@ public class HiveAPI {
 	
 	public 	static	String 	s_CreateDataBase 					= 	"CREATE DATABASE IF NOT EXISTS " 		+ ITableName.s_DataBaseName;
 	public 	static	String	s_UseDataBase						= 	"USE " 					+ ITableName.s_DataBaseName;
-	public 	static	String	s_DropDataBase						= 	"DROP DATABASE "		+ ITableName.s_DataBaseName;
 	
 	public	static	String	s_CreateSensorLogTable				=	"CREATE TABLE IF NOT EXISTS " + ITableName.s_SensorLog 
 																	+" ( messageID String, deviceID String, roomID String, power int, "
@@ -18,7 +17,7 @@ public class HiveAPI {
 																	+" STORED AS TEXTFILE";
 	
 	public	static	String	s_CreateDeviceTable	=	"CREATE TABLE IF NOT EXISTS " +ITableName.s_Device
-													+ " ( deviceID String, deviceName String, deviceLocation String, deviceStatus int )"
+													+ " ( deviceID String, deviceName String, deviceLocation String, deviceStatus String, deviceType String )"
 													+" COMMENT 'Device detail'"
 											        +" ROW FORMAT DELIMITED"
 											        +" FIELDS TERMINATED BY '\t'"
@@ -26,7 +25,7 @@ public class HiveAPI {
 											        +" STORED AS TEXTFILE";
 	public	static	String	s_CreatePowerConsumtionTable = 
 													"CREATE TABLE IF NOT EXISTS " +ITableName.s_Power 
-													+ " ( deviceID String, datePow timestamp, timeConsumtion int, powerConsumtion int )"
+													+ " ( deviceID String, datePow String, timeConsumtion int, powerConsumtion int )"
 													+" COMMENT 'Power Consumtion'"
 											        +" ROW FORMAT DELIMITED"
 											        +" FIELDS TERMINATED BY '\t'"
@@ -37,6 +36,11 @@ public class HiveAPI {
 	public	static	String	s_LoadDataDeviceDetailLocalInPath 		= "LOAD  DATA LOCAL INPATH  '/home/hduser2/ProjectBigData/TempDataDeviceDetail.txt' INTO TABLE " + ITableName.s_Device;
 	public	static	String	s_LoadDataPowerConsumptionLocalInPath 	= "LOAD  DATA LOCAL INPATH  '/home/hduser2/ProjectBigData/TempDataPower.txt' INTO TABLE " + ITableName.s_Power;
 
-	public	static	String 	s_SelectTableDevice				 	= 	"SELECT * FROM " 		+ ITableName.s_Device;
+	public	static 	String	s_DropDeviceTable						= "DROP TABLE IF EXISTS " 	+ ITableName.s_Device;
+	public	static 	String	s_DropPowerTable						= "DROP TABLE IF EXISTS " 	+ ITableName.s_Power;
+	public	static 	String	s_DropLogTable							= "DROP TABLE IF EXISTS " 	+ ITableName.s_SensorLog;
+	public	static	String	s_DropDataBase							= "DROP DATABASE IF EXISTS " + ITableName.s_DataBaseName;
+	
+	public	static	String 	s_SelectTableDevice				 	= 	"SELECT * FROM " 			+ ITableName.s_Device;
 
 }
